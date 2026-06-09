@@ -1,0 +1,331 @@
+using System.Data;
+
+namespace ejerciciosif_else
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int opcion = 0;
+
+            Console.WriteLine("----------Menu de Ejercicios----------");
+            Console.WriteLine("Seleccione un ejercicio");
+            Console.WriteLine("1.verificacion de edad");
+            Console.WriteLine("2. Sistemas de calificiones escolares");
+            Console.WriteLine("3. Verificador de números pares e impares");
+            Console.WriteLine("4. Simulador de cajero automatico[Fondo suficiente]");
+            Console.WriteLine("5. Calificador de temperatura ambiental");
+            Console.WriteLine("6. Selector de Días de la semana");
+            Console.WriteLine("7. calculadora básica de operaciones");
+            Console.WriteLine("8. conversor de usuario (roles de sistema)");
+            Console.WriteLine("9. Dispensador automático de bebidas");
+            Console.WriteLine("10. Indenticador de estaciones del año");
+            Console.WriteLine("11. salir");
+            Console.WriteLine("Elija el numero del ejercicio que desea ejecutar:");
+
+            opcion = int.Parse(Console.ReadLine());
+
+            switch (opcion)
+            {
+                case 1:
+                    verificacion_Edad();
+                    break;
+                case 2:
+                    Sistemas_calificaciones_Escolares();
+                    break;
+                case 3:
+                    Verificador_Pares_Impares();
+                    break;
+                case 4:
+                    Simulador_Cajero_Automatico();
+                    break;
+                case 5:
+                    Calificador_temperatura_ambiental();
+                    break;
+                case 6:
+                    Selector_dias_semana();
+                    break;
+                case 7:
+                    Calculadora_básica_operaciones();
+                    break;
+                case 8:
+                    conversor_de_usuario();
+                    break;
+                case 9:
+                    Dispensador_automatico_bebidas();
+                    break;
+                case 10:
+                    Identificador_estaciones_año();
+                    break;
+                case 11:
+                    Console.WriteLine("Saliendo del programa...");
+                    break;
+                default:
+                    Console.WriteLine("Opción no válida. Por favor, elija un número del 1 al 11.");
+                    Console.ReadLine();
+                    break;
+            }while (opcion != 11) ;
+        }
+    
+    static void verificacion_Edad()
+        {
+            
+            Console.WriteLine("--------- verificación de Edad-----------");
+
+            Console.WriteLine("Ingrese su edad:");
+            int edad = int.Parse(Console.ReadLine());
+            if (edad >= 18)
+            {
+                Console.WriteLine("Eres mayor de edad.");
+            }
+            else
+            {
+                Console.WriteLine("Eres menor de edad.");
+            }
+        }
+        
+
+        static void Sistemas_calificaciones_Escolares()
+        {
+            Console.WriteLine("Ingrese la calificación del estudiante (0-100):");
+            int calificacion = int.Parse(Console.ReadLine());
+            if (calificacion >= 90)
+            {
+                Console.WriteLine("Calificación: A");
+            }
+            else if (calificacion >= 80)
+            {
+                Console.WriteLine("Calificación: B");
+            }
+            else if (calificacion >= 70)
+            {
+                Console.WriteLine("Calificación: C");
+            }
+            else if (calificacion >= 60)
+            {
+                Console.WriteLine("Calificación: D");
+            }
+            else
+            {
+                Console.WriteLine("Calificación: F");
+            }
+        }
+        static void Verificador_Pares_Impares()
+        {
+            Console.WriteLine("Ingrese un número:");
+            int numero = int.Parse(Console.ReadLine());
+            if (numero % 2 == 0)
+            {
+                Console.WriteLine("El número es par.");
+            }
+            else
+            {
+                Console.WriteLine("El número es impar.");
+            }
+        }
+        static void Simulador_Cajero_Automatico()
+        {
+            Console.WriteLine("Ingrese el monto a retirar:");
+            decimal monto = decimal.Parse(Console.ReadLine());
+            decimal saldo = 1000m; // Saldo inicial del cajero
+            if (monto <= saldo)
+            {
+                saldo -= monto;
+                Console.WriteLine($"Retiro exitoso. Saldo restante: {saldo:C}");
+            }
+            else
+            {
+                Console.WriteLine("Fondo insuficiente para realizar el retiro.");
+            }
+        }
+
+        static void Calificador_temperatura_ambiental()
+        {
+            Console.WriteLine("Ingrese la temperatura ambiental en grados Celsius:");
+            int temperatura = int.Parse(Console.ReadLine());
+            if (temperatura < 15)
+            {
+                Console.WriteLine("Clima Frio");
+            }
+            else if (15 <= temperatura && temperatura < 28)
+            {
+                Console.WriteLine("Clima Templado");
+            }
+            else if (temperatura >= 28)
+            {
+                Console.WriteLine("Clima Caliente");
+            }
+        }
+        static void Selector_dias_semana()
+        {
+            Console.WriteLine("Ingrese un número del 1 al 7 para seleccionar un día de la semana:");
+            int dia = int.Parse(Console.ReadLine());
+            switch (dia)
+            {
+                case 1:
+                    Console.WriteLine("Lunes");
+                    break;
+                case 2:
+                    Console.WriteLine("Martes");
+                    break;
+                case 3:
+                    Console.WriteLine("Miércoles");
+                    break;
+                case 4:
+                    Console.WriteLine("Jueves");
+                    break;
+                case 5:
+                    Console.WriteLine("Viernes");
+                    break;
+                case 6:
+                    Console.WriteLine("Sábado");
+                    break;
+                case 7:
+                    Console.WriteLine("Domingo");
+                    break;
+                default:
+                    Console.WriteLine("Número no válido. Por favor, ingrese un número del 1 al 7.");
+                    break;
+            }
+        }
+        static void Calculadora_básica_operaciones()
+        {
+            Console.WriteLine("Ingrese el primer número:");
+            double num1 = double.Parse(Console.ReadLine());
+            Console.WriteLine("Ingrese el segundo número:");
+            double num2 = double.Parse(Console.ReadLine());
+            Console.WriteLine("Seleccione la operación (+, -, *, /):");
+            string operacion = Console.ReadLine();
+            double resultado;
+            switch (operacion)
+            {
+                case "+":
+                    resultado = num1 + num2;
+                    Console.WriteLine($"Resultado: {resultado}");
+                    break;
+                case "-":
+                    resultado = num1 - num2;
+                    Console.WriteLine($"Resultado: {resultado}");
+                    break;
+                case "*":
+                    resultado = num1 * num2;
+                    Console.WriteLine($"Resultado: {resultado}");
+                    break;
+                case "/":
+                    if (num2 != 0)
+                    {
+                        resultado = num1 / num2;
+                        Console.WriteLine($"Resultado: {resultado}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Error: No se puede dividir por cero.");
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Operación no válida. Por favor, seleccione una operación válida.");
+                    break;
+            }
+        }
+        static void conversor_de_usuario()
+        {
+            string opcion;
+
+            Console.WriteLine("-------conversor de usuario--------");
+            Console.WriteLine("A. administrador");
+            Console.WriteLine("E. Editar");
+            Console.WriteLine("AU. Autor");
+            Console.WriteLine("L. Lector");
+            Console.WriteLine("Elige una opcion: ");
+
+            opcion = Console.ReadLine();
+
+            switch (opcion)
+            {
+                case "A":
+                    Console.WriteLine("Has seleccionado el rol de Administrador.");
+                    Console.WriteLine("Llevar el control total del sistema, incluyendo la gestión de usuarios, configuración y mantenimiento.");
+                    break;
+                case "E":
+                    Console.WriteLine("Has seleccionado el rol de Editor.");
+                    Console.WriteLine("Responsable de crear, editar y publicar contenido en el sistema, asegurando la calidad y coherencia del mismo.");
+                    break;
+                case "AU":
+                    Console.WriteLine("Has seleccionado el rol de Autor.");
+                    Console.WriteLine("eres autor de distintos libros o cosas propias dentro del sistema, puedes crear y gestionar tu propio contenido, pero no tienes acceso a la configuración del sistema ni a la gestión de usuarios.");
+                    break;
+                case "L":
+                    Console.WriteLine("Has seleccionado el rol de Lector.");
+                    Console.WriteLine("Permite leer contenido publicado por el autor , pero no tiene permisos para editar o gestionar el contenido ni el sistema.");
+                    break;
+                default:
+                    Console.WriteLine("Eres un invitado, bienvenido a nuestro sistema");
+                    Console.WriteLine("Permite leer contenido público y que no se posea pagó, y no tiene permisos para editar o gestionar el contenido ni el sistema.");
+                    break;
+            }
+        }
+        static void Dispensador_automatico_bebidas()
+        {
+            Console.WriteLine("Ingrese el número de la bebida que desea:");
+            Console.WriteLine("1. Coca-Cola");
+            Console.WriteLine("2. Pepsi");
+            Console.WriteLine("3. Agua");
+            Console.WriteLine("4. Jugo de naranja");
+            int bebida = int.Parse(Console.ReadLine());
+            switch (bebida)
+            {
+                case 1:
+                    Console.WriteLine("Has seleccionado Coca-Cola.");
+                    break;
+                case 2:
+                    Console.WriteLine("Has seleccionado Pepsi.");
+                    break;
+                case 3:
+                    Console.WriteLine("Has seleccionado Agua.");
+                    break;
+                case 4:
+                    Console.WriteLine("Has seleccionado Jugo de naranja.");
+                    break;
+                default:
+                    Console.WriteLine("Número no válido. Por favor, seleccione una bebida válida.");
+                    break;
+            }
+        }
+        static void Identificador_estaciones_año()
+        {
+            Console.WriteLine("Ingrese el número del mes (1-12):");
+            int mes = int.Parse(Console.ReadLine());
+            switch (mes)
+            {
+                case 12:
+                case 1:
+                case 2:
+                    Console.WriteLine("Estación: Invierno");
+                    break;
+                case 3:
+                case 4:
+                case 5:
+                    Console.WriteLine("Estación: Primavera");
+                    break;
+                case 6:
+                case 7:
+                case 8:
+                    Console.WriteLine("Estación: Verano");
+                    break;
+                case 9:
+                case 10:
+                case 11:
+                    Console.WriteLine("Estación: Otoño");
+                    break;
+                default:
+                    Console.WriteLine("Número no válido. Por favor, ingrese un número del 1 al 12.");
+                    break;
+            }
+
+        }
+    }
+}
+
+
+
