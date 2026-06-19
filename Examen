@@ -1,0 +1,83 @@
+using System;
+using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+
+namespace Examen
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            double[] Temps = new double[7];
+
+
+            for (int i = 0; i < 7; i++)
+            {
+
+                Console.WriteLine($"Agrega las temperaturas del {i + 1} Dias:");
+                Temps[i] = double.Parse(Console.ReadLine());
+
+                if (Temps[i] < -50)
+                {
+                    Console.WriteLine("la temperatura supera estos grados en frio");
+                }
+                else if (Temps[i] > 50)
+                {
+                    Console.WriteLine("la temperatura supera estos grados en calor ");
+                }
+                else
+                {
+                    Console.WriteLine("La temperatura esta en su rango normal");
+                }
+
+                
+            }
+            double Resulpt = Promedio(Temps);
+            Console.WriteLine($"Este es el promedio {Resulpt}");
+
+            if (Resulpt < 4)
+            {
+                Console.WriteLine("Alerta el promedio del clima es inferior al 4°C");
+                Console.WriteLine("ingresa la velocidad del viento: (bajo o alto");
+                string viento = Console.ReadLine();
+
+                switch (viento.ToLower())
+                {
+                    case "bajo":
+                        Console.WriteLine("Resultado: Alerta amarilla");
+                        break;
+                    case "alto":
+                        Console.WriteLine("Resultado: Alerta Roja");
+                        break;
+                    default:
+                        Console.WriteLine("Opcion invalida. Agregue una opcion valida");
+                        break;
+                }
+            }
+            else 
+            {
+                Console.WriteLine("El promedio es estable de 4°C o superior");
+            }
+
+        }
+        static double Promedio(double[] Temps)
+            {
+                double Suma = 0;
+                
+
+                for (int i = 0; i < Temps.Length; i++)
+                {
+                    Suma += Temps[i];  
+                }
+                Console.WriteLine($"este es la suma {Suma}");
+
+                double Prom = 0;
+
+                Prom = Suma / 7;
+                
+                return Prom;
+
+        }
+        
+    }
+}
