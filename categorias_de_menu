@@ -1,0 +1,995 @@
+using System;
+using System.Diagnostics;
+using System.Numerics;
+using System.Runtime.ConstrainedExecution;
+using System.Runtime.Intrinsics.X86;
+
+namespace Categorias_en_Menu
+{
+    internal class program
+    {
+        static void Main(string[] args)
+        {
+            int Opcion = 0;
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("=====  Categorias  ====");
+                Console.WriteLine("Elige una categoria:");
+                Console.WriteLine("1. Categoria de trabajo");
+                Console.WriteLine("2. Categoria de Descuento");
+                Console.WriteLine("3. Categoria de Ejercicio");
+                Console.WriteLine("4. Categoria de Tiempo");
+                Console.WriteLine("opcion:");
+
+                Opcion = int.Parse(Console.ReadLine());
+
+                switch (Opcion)
+                {
+                    case 1:
+                        Categoria_de_trabajo();
+                        break;
+                    case 2:
+                        Categoria_de_descuento();
+                        break;
+                    case 3:
+                        Categoria_de_ejercicio();
+                        break;
+                    case 4:
+                        Categoria_de_tiempo();
+                        break;
+
+                    case 5:
+                        Console.WriteLine("Saliendo del programa");
+                        break;
+                    default:
+                        Console.WriteLine("No existe esta opcion, Elige otra");
+                        break;
+                }
+            } while (Opcion != 4);
+        }
+
+        static void Categoria_de_trabajo()
+        {
+            int opcion = 0;
+
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("==== Categoria de trabajo ====");
+                Console.WriteLine(".Elige una opcion");
+                Console.WriteLine("1.Horas Extras");
+                Console.WriteLine("2. Salario");
+                Console.WriteLine("3. Tarifa de Pago");
+                Console.WriteLine("4. Consumo en Restaurante");
+                Console.WriteLine("5.ingresos en una compañia");
+                Console.WriteLine("6. formulario de notas");
+                Console.WriteLine("7. Salir");
+                Console.WriteLine("opcion:");
+
+                opcion = int.Parse(Console.ReadLine());
+
+                switch(opcion)
+                {
+                    case 1:
+                        horas_Extras();
+                        break;
+                    case 2:
+                        salario();
+                        break;
+                    case 3:
+                        Tarifa_de_Pago();
+                        break;
+                    case 4:
+                        consumo_en_retaurante();
+                        break;
+                    case 5:
+                        ingresos_compañia();
+                        break;
+                    case 6:
+                        formulario_de_notas();
+                        break;
+                    case 7:
+                        Console.WriteLine("Saliendo del programa...");
+                        break;
+                    default:
+                        Console.WriteLine("Esta opcion es invalida"); 
+                        break;
+                }
+            }while (opcion != 7);
+
+        }
+        static void Categoria_de_descuento()
+        {
+            int opcion = 0;
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("==== Categoria de descuento ====");
+                Console.WriteLine("Elige una opcion:");
+                Console.WriteLine("1. Descuento de primer nivel");
+                Console.WriteLine("2. Descuento de segundo nivel");
+                Console.WriteLine("3. impuesto sobre la compra");
+                Console.WriteLine("4. salir");
+                Console.WriteLine("Opcion: ");
+               opcion = int.Parse(Console.ReadLine());
+
+                switch (opcion)
+                {
+                    case 1: Descuento_nivel_1(); break;
+                    case 2: Descuento_nivel_2(); break;
+                    case 3: impuesto_bruto_sobre_compra(); break;
+                    case 4: Console.WriteLine("Saliendo del programa ..."); break;
+                    default: Console.WriteLine("esta opcion no esta permitida"); break;
+                }
+            }while(opcion != 4);
+
+
+        }
+        static void Categoria_de_ejercicio()
+        {
+            int opcion = 0;
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("==== Categoria de ejercicio ====");
+
+                Console.WriteLine("Elige una opcion:");
+                Console.WriteLine("1. Suma de números");
+                Console.WriteLine("2. calculadora notas");
+                Console.WriteLine("3. Sumar digitos");
+                Console.WriteLine("4. verificacion de numeros");
+                Console.WriteLine("5. factorial de un numero");
+                Console.WriteLine("6. media de 100 numero");
+                Console.WriteLine("7. numeros pares 20 al 30");
+                Console.WriteLine("8. Primer Caracter");
+                Console.WriteLine("9. Verificacion de fraccionarias");
+                Console.WriteLine("10. Calculadora de coeficientes");
+                Console.WriteLine("11. Calculadora simple");
+                Console.WriteLine("12. Calculadora de cubo");
+                Console.WriteLine("13. calculadora ");
+                Console.WriteLine("14. calcular area de un triangulo");
+                Console.WriteLine("15. Sacar la hipotenusa");
+                Console.WriteLine("16. Circuferencia del Circulo ");
+                Console.WriteLine("17. numeros presentados mayor a 8 ");
+                Console.WriteLine("18. Salir");
+                Console.WriteLine("opcion:");
+
+                opcion = int.Parse(Console.ReadLine());
+
+                switch (opcion)
+                {
+                    case 1:
+                        suma_de_numeros();
+                        break;
+                    case 2:
+                        calculadora_notas();
+                        break;
+                    case 3:
+                        Sumar_Digitos();
+                        break;
+                    case 4:
+                        verificacion_numeros();
+                        break;
+                    case 5:
+                       factorial_de_un_num();
+                       break;
+                    case 6:
+                        media_de_100_num();
+                        break;
+                    case 7:
+                        numero_pares_20_al_30();
+                        break;
+                    case 8:
+                        primer_caracter();
+                        break;
+                    case 9:
+                        verificar_de_fraccionarias();
+                        break;
+                    case 10:
+                        calculadora_coeficientes();
+                        break;
+                    case 11:
+                        calculadora_simple();
+                        break;
+                    case 12:
+                        calculadora_de_cubo();
+                        break;
+                    case 13:
+                        Calculadora();
+                        break;
+                    case 14:
+                        area_triangulo();
+                        break;
+                    case 15:
+                        sacar_hipotenusa();
+                        break;
+                    case 16:
+                        circuferencia_circulo();
+                        break;
+                    case 17:
+                        num_presentados_mayor_8();
+                        break;
+                    case 18:
+                        Console.WriteLine("Saliendo del Programa");
+                        break;
+                    default:
+                        Console.WriteLine("no se encuentra esta opcion");
+                        break;
+
+                }
+            }while (opcion != 18);
+
+        }
+        
+        static void Categoria_de_tiempo()
+        {
+            int opcion = 0;
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("==== Categoria de tiempo ====");
+                Console.WriteLine("Elige una opcion");
+                Console.WriteLine("1. Segundos");
+                Console.WriteLine("2. dias horas");
+                Console.WriteLine("3. Salir");
+                Console.WriteLine("opcion:");
+
+                opcion = int.Parse(Console.ReadLine());
+
+                switch ( opcion)
+                {
+                    case 1:
+                        falta_segundos();
+                        break;
+                    case 2:
+                        dias_Horas();
+                        break;
+                    case 3:
+                        Console.WriteLine("Saliendo del programa...");
+                        break;
+                    default:
+                        Console.WriteLine("esta opcion no se encuentra");
+                        break;
+                }
+            } while (opcion != 3);
+        }
+       
+        static void horas_Extras()
+        {
+            double tarifa, horastrabajadas, horasextra, salario, tarifaextra;
+            Console.WriteLine("ingrese horas trabajadas");
+            horastrabajadas = double.Parse(Console.ReadLine());
+            Console.WriteLine("ingrese tarifa");
+            tarifa = double.Parse(Console.ReadLine());
+            if (horastrabajadas <= 40 && horastrabajadas >= 0)
+            {
+                salario = horastrabajadas * tarifa;
+                Console.WriteLine("el salario es: " + salario);
+            }
+
+            else if (horastrabajadas > 40)
+            {
+                horasextra = horastrabajadas - 40;
+                tarifaextra = tarifa + 0.5 * tarifa;
+                salario = horasextra * tarifaextra + 40 * tarifa;
+                Console.WriteLine("el salario es:" + salario);
+            }
+
+            else
+
+            {
+                Console.WriteLine("las Horas trabajadas no pueden ser negativas!");
+
+            }
+
+
+        }
+
+
+        // Ejercicio 2
+        static void Descuento_nivel_1()
+        {
+            double sueldo, sueldoneto, descuento; Console.WriteLine("ingrese el sueldo");
+            sueldo =
+            double.Parse(Console.ReadLine());
+            if (sueldo <= 1000 && sueldo >= 0)
+            {
+                descuento = sueldo * 0.1; sueldoneto = sueldo
+                -
+                descuento;
+                Console.WriteLine("el descuento es: {0} y el sueldo neto es:", descuento, sueldoneto);
+            }
+            else if (sueldo <= 2000 && sueldo >= 0)
+            {
+                descuento = (sueldo - 1000) * 0.05 + (1000 * 0.1);
+                sueldoneto = sueldo - descuento;
+                Console.WriteLine("el descuento es: {0} y el sueldo neto es {1}", descuento, sueldoneto);
+
+
+            }
+            else if (sueldo > 2000)
+            {
+                descuento = (sueldo - 2000) * 20.3 + (1000 * 0.05) + (1000 * 0.10);
+                sueldoneto = sueldo - descuento;
+                Console.WriteLine("el descuento es: {0} y el sueldo neto es {1}", descuento, sueldoneto);
+            }
+
+            else
+            {
+                Console.WriteLine("error el sueldo no puede ser negativo");
+                Console.ReadLine();
+            }
+
+        }
+
+        //Ejercicio 3
+        static void Descuento_nivel_2()
+        {
+            double monto, descuento;
+            Console.WriteLine("ingrese monto");
+            monto
+            =
+            double.Parse(Console.ReadLine());
+            if (monto > 100)
+            {
+                descuento = monto * 0.1;
+                Console.WriteLine("el monto {0} tiene un descuento del {1}", monto, descuento);
+            }
+            else if (monto <= 100 && monto > 0)
+            {
+                descuento = monto * 0.2;
+
+                Console.WriteLine("el monto {0} tiene un descuento del {1}", monto, descuento);
+            }
+            else
+            {
+                Console.WriteLine("error el monto no puede ser negativo");
+            }
+            Console.WriteLine("error el monto no puede ser negativo");
+
+
+        }
+
+        // Ejercicio 4
+        static void falta_segundos()
+        {
+            int tiemposegundos, minutos, segundosrestantes;
+            Console.WriteLine("ingrese el tiempo en segundos");
+            tiemposegundos = int.Parse(Console.ReadLine());
+
+            if (tiemposegundos < 60 && tiemposegundos > 0)
+            {
+                segundosrestantes = 60 - tiemposegundos;
+                Console.WriteLine("Le falta {0} segundos para convertirse en minuto",
+                segundosrestantes);
+            }
+            else if (tiemposegundos >= 60)
+            {
+                minutos = (tiemposegundos - (tiemposegundos % 60)) / 60;
+
+                segundosrestantes = tiemposegundos % 60;
+                Console.WriteLine("equivale a {0} minutos y le faltan {1} segundos para convertirse en minuto", minutos, segundosrestantes);
+            }
+            else
+            {
+                Console.WriteLine("la cantidad de segundos debe ser un numero positivo");
+
+            }
+        }
+
+        //Ejercicio 5
+        static void dias_Horas()
+        {
+            int tiempo, dias, horas, minutos, x;
+            Console.WriteLine("ingrese un tiempo en minutos");
+            tiempo = int.Parse(Console.ReadLine());
+            if (tiempo >= 0)
+            {
+                dias = (tiempo - (tiempo % 60)) / 1440;
+                x = tiempo % 1440;
+                horas = (x - (x % 60)) / 60;
+                minutos = x % 60;
+                Console.WriteLine("equivale a {0} dias con {1} horas y {2} minutos", dias, horas, minutos);
+            }
+            else
+            {
+                Console.WriteLine("el tiempo no puede ser negativo");
+            }
+
+        }
+
+        // EJercicio 6
+        static void suma_de_numeros()
+        {
+            int x, numero, suma;
+            Console.Write("ingrese el numero N :");
+            numero = int.Parse(Console.ReadLine());
+            suma = 0;
+            for (x = 1; x <= numero; x = x + 1)
+            {
+                suma = suma + x;
+                Console.WriteLine("n{0}: {1}", x, x);
+            }
+            Console.WriteLine("");
+            Console.WriteLine("La suma de la serie es: {0}", suma);
+
+        }
+
+        static void salario()
+        {
+            double x, salario, horastrabajadas, tarifa, suma, numerotrabajadores;
+            suma = 0;
+            Console.Write("ingrese la cantidad de trabajadores: ");
+            numerotrabajadores = double.Parse(Console.ReadLine());
+            for (x = 1; x <= numerotrabajadores; x = x + 1)
+            {
+                Console.WriteLine(" trabajador {0}: ", x);
+                Console.Write(" horas trabajasdas: ");
+                horastrabajadas = double.Parse(Console.ReadLine());
+                Console.Write(" tarifa : ");
+                tarifa = double.Parse(Console.ReadLine());
+                Console.WriteLine("");
+                salario = horastrabajadas * tarifa;
+                suma = suma + salario;
+            }
+            Console.WriteLine("la suma de los salarios es : {0}", suma);
+
+        }
+
+        //Ejercicio 8
+
+        static void Tarifa_de_Pago()
+        {
+            double horastrabajadas, tarifa, salario;
+            Console.Write("ingrese horas trabajadas: ");
+            horastrabajadas = double.Parse(Console.ReadLine());
+            Console.Write("ingrese tarifa: ");
+            tarifa = double.Parse(Console.ReadLine());
+            salario = horastrabajadas * tarifa;
+            Console.WriteLine("El salario del trabajador es: " + salario);
+
+        }
+
+        //Ejercicio 9
+        static void calculadora_notas()
+        {
+            double promedio, ca, cd, x, nota, acumuladasdesapro, acumuladasapro, acumuladas, promedioaprobadas, promediodesaprobadas;
+            string resp;
+            x = 1;
+            ca = 0;
+            cd = 0;
+            acumuladas = 0;
+            acumuladasapro = 0;
+            acumuladasdesapro = 0;
+            do
+            {
+                Console.Write(" Introduce la nota: ");
+                nota = int.Parse(Console.ReadLine());
+                Console.Write(" ¿deseas ingresar otra nota?: ");
+                resp = Console.ReadLine();
+                Console.WriteLine("");
+                if (nota <= 10.5 && nota >= 0)
+                {
+                    cd = cd + 1;
+                    acumuladasdesapro = acumuladasdesapro + nota;
+                }
+
+                else if (nota > 10.5 && nota < 20)
+                {
+                    ca = ca + 1;
+                    acumuladasapro = acumuladasapro + nota;
+                }
+                acumuladas = acumuladas + nota;
+
+                x = cd + ca;
+                promedioaprobadas = Math.Round(acumuladasapro / ca, 1);
+                promediodesaprobadas = Math.Round(acumuladasdesapro / cd, 1);
+                promedio = Math.Round(acumuladas / x, 1);
+            }
+            while (resp == "si");
+            Console.Clear();
+            Console.WriteLine("la cantidad de notas desaprobadas es:" + cd);
+            Console.WriteLine("la cantidad de notas aprobadas es:" + ca);
+            Console.WriteLine("el promedio de las notas aprobadas es: " + promedioaprobadas);
+            Console.WriteLine("el promedio de las notas desaprobadas es:" + promediodesaprobadas);
+            Console.WriteLine("el promedio final es:" + promedio);
+
+        }
+
+        //Ejercicio 10
+        static void Sumar_Digitos()
+        {
+            int numero, suma, residuo;
+            suma = 0;
+            Console.WriteLine("ingresar un numero");
+            numero = int.Parse(Console.ReadLine());
+
+            do
+            {
+                residuo = numero % 10;
+                suma = suma + residuo;
+                numero = (numero - (numero % 10)) / 10;
+                while (numero != 0) ;
+            }
+            while (numero != 0);
+            {
+                Console.WriteLine("");
+                Console.WriteLine("la suma es de los digitos es: {0}", suma);
+            }
+
+        }
+
+        //Ejercicio 11
+        static void impuesto_bruto_sobre_compra()
+        {
+            double precio, numeroarticulos, precioventa, descuento, preciobruto, iva, totalpagar;
+
+            Console.Write("ingrese el precio: ");
+            precio = double.Parse(Console.ReadLine());
+            Console.Write("ingrese numero de articulos: ");
+            numeroarticulos = double.Parse(Console.ReadLine());
+            precioventa = precio * numeroarticulos;
+            iva = Math.Round(precioventa * 0.15, 2);
+            preciobruto = precioventa + iva;
+
+            if (preciobruto >= 50)
+            {
+                descuento = Math.Round((preciobruto * 5) / 100, 2);
+            }
+            else
+            {
+                descuento = 0;
+            }
+            totalpagar = preciobruto - descuento;
+            Console.WriteLine(" ");
+            Console.WriteLine(" Datos de la factura");
+            Console.WriteLine(" ");
+            Console.WriteLine(" Precio de venta : " + precioventa);
+            Console.WriteLine(" Impuesto sobre el valor añadido (IVA) es:" + iva);
+            Console.WriteLine(" Precio bruto es :" + preciobruto);
+            Console.WriteLine(" Descuento es: " + descuento);
+            Console.WriteLine(" Total a pagar: " + totalpagar);
+        }
+
+        //Ejercicio 12
+        static void verificacion_numeros()
+        {
+            int x, numero, positivos, negativos, pares, impares;
+            pares = 0;
+            impares = 0;
+            positivos = 0;
+            negativos = 0;
+            for (x = 1; x <= 50; x = x + 1)
+            {
+                Console.Write("ingrese {0}° numero: ", x);
+                numero = int.Parse(Console.ReadLine());
+                if (numero % 2 == 0)
+                {
+                    pares = pares + 1;
+                }
+                else
+                {
+                    impares = impares + 1;
+                }
+                if (numero > 0)
+                {
+                    positivos = positivos + 1;
+                }
+                else
+                {
+                    negativos = negativos + 1;
+                }
+            }
+            Console.WriteLine(" ");
+            Console.WriteLine("la cantidad de numeros pares es:" + pares);
+            Console.WriteLine("la cantidad de numeros impares es:" + impares);
+            Console.WriteLine("la cantidad de numeros negativos es:" + positivos);
+            Console.WriteLine("la cantidad de numeros positivos es: " + negativos);
+
+        }
+
+        static void factorial_de_un_num()
+        {
+            int numero, factorial, i;
+            Console.WriteLine("Ingrese Numero: ");
+            numero = int.Parse(Console.ReadLine());
+            factorial = 1;
+            for (i = 1; i <= numero; i++)
+                factorial = factorial * i; //factorial *= 1
+            Console.WriteLine("");
+            Console.WriteLine("Factorial: ");
+            Console.WriteLine(" {0}! = {1} ", numero, factorial);
+
+        }
+
+        //Ejercicio 14
+        static void media_de_100_num()
+        {
+            double suma, media, x, numero;
+            suma = 0;
+            for (x = 1; x <= 100; x = x + 1)
+            {
+                Console.WriteLine("ingrese {0} numeros: ", x);
+                numero = double.Parse(Console.ReadLine());
+                suma = suma + numero;
+            }
+            media = Math.Round(suma / 100, 2);
+            Console.WriteLine(" ");
+            Console.WriteLine("la media de los 100 numeros ingresados es: " + media);
+
+        }
+
+        //Ejercicio 15
+        static void numero_pares_20_al_30()
+        {
+            int suma, producto, x;
+            suma = 0;
+            producto = 1;
+            for (x = 20; x <= 30; x = x + 2)
+            {
+                suma = suma + x;
+                producto = producto * x;
+            }
+            Console.WriteLine("Rango : numeros pares del 20 al 30");
+            Console.WriteLine("");
+            Console.WriteLine("La suma es:" + suma);
+            Console.WriteLine("El producto es:" + producto);
+
+
+        }
+
+        //Ejercicio 16
+
+        static void Vacio_1()
+        {
+            Console.WriteLine("Hola, AQui no hay nada.");
+        }
+
+        //Ejercicio 17
+        static void vacio_2()
+        {
+            Console.WriteLine("Aqui tampoco no hay nada.");
+        }
+
+        //Ejercicio 18
+        static void primer_caracter()
+        {
+            string caracter;
+            int x;
+            x = 1;
+            do
+            {
+                Console.WriteLine("ingrese caracter");
+                caracter = Console.ReadLine();
+                if (caracter.Equals("a") || (caracter.Equals("e")) || (caracter.Equals("i")) || (caracter.Equals("o")) || (caracter.Equals("u")))
+                    x = 0;
+            }
+            while (x == 1);
+            Console.WriteLine("");
+            Console.WriteLine("La primera vocal ingresada fue:" + caracter);
+
+        }
+
+        // Ejercicio 19
+        static void verificar_de_fraccionarias()
+        {
+            double numero, pf;
+            Console.WriteLine("ingrese un numero");
+            numero = double.Parse(Console.ReadLine());
+            pf = Math.Truncate(numero);
+            if (numero == pf)
+                Console.WriteLine("no tiene parte fraccionaria");
+            else
+                Console.WriteLine("tiene parte fraccionaria");
+
+        }
+
+        //Ejercicio 20 
+
+        static void calculadora_coeficientes()
+        {
+            Console.Title = "Soluciones de la ecuaciones Cuadraticas.";
+            double coefA, coefB, coefC, disc, s1, s2, s3, raiz1, raiz2, raizima1, raizima2;
+            Console.WriteLine("Dadas las ecuaciones aX2 + bx + c  = 0 Ingrese los coeficinetes " +
+                "a,b,c para calcular los posibles valores de x");
+            Console.WriteLine();
+            Console.WriteLine("Ingrese el coeficiente de A: ");
+            coefA = double.Parse(Console.ReadLine());
+            Console.WriteLine("Ingrese el COeficiente de B: ");
+            coefB = double.Parse(Console.ReadLine());
+            Console.WriteLine("Ingrese el coeficiente de C: ");
+            coefC = double.Parse(Console.ReadLine());
+            disc = Math.Pow(coefB, 2) - 4 * coefA * coefC;
+
+            if (coefA == 0)
+                Console.WriteLine("Esta no es una ecuacion Cuadratica coeficiente 'a' debe ser diferente de 0");
+            else
+                if (disc > 0)
+                {
+                    s1 = Math.Round((-coefB + Math.Pow(disc, 0.5)) / (2 * coefA), 2);
+                    s2 = Math.Round((-coefB - Math.Pow(disc, 0.5)) / (2 * coefA), 2);
+
+                    Console.WriteLine("el discriminante es positivo y se han obtenidos las siguentes" +
+                        "soluciones : x1 =  {0} y x2 = {1}", s1, s2);
+                }
+                else if (disc == 0)
+                {
+                    s3 = Math.Round((-coefB / (2 * coefA)), 2);
+                    Console.WriteLine("El discriminate es 0 se obtiene las siguentes soluciones: " +
+                        "s = {0}", s3);
+                }
+                else if ((4 * coefA * coefC) > (Math.Pow(coefB, 2)))
+                {
+                    raiz1 = Math.Round(-coefB / (2 * coefA), 3);
+                    raizima1 = Math.Round(Math.Sqrt((4 * coefA * coefC) - Math.Pow(coefB, 2)) / (2 * coefA), 4);
+                    raiz2 = Math.Round(-coefB / (2 * coefA), 3);
+                    raizima2 = Math.Round(-Math.Sqrt((4 * coefA * coefC) - Math.Pow(coefB, 2)) / (2 * coefA), 4);
+                    Console.WriteLine("discriminante es {0} se obtiene las siguientes " +
+                        "raices imaginarias: x1 = {1}+i ({2}), x2 = {3}+i ({4})", disc, raiz1, raizima1, raiz2, raizima2);
+                }
+
+        }
+
+        // ejercicio 21
+        static void calculadora_simple()
+        {
+            double num1, num2, c, suma, resta, multiplicacion, division;
+            c = 0;
+            do
+            {
+                c = c + 1;
+                Console.WriteLine("PROCESO N° {0}:", c);
+                Console.Write("ingrese primer numero: ");
+                num1 = double.Parse(Console.ReadLine());
+                Console.Write("ingrese segundo numero: ");
+                num2 = double.Parse(Console.ReadLine());
+                suma = num1 + num2;
+                resta = num1 - num2;
+                multiplicacion = num1 * num2;
+
+                division = Math.Round(num1 / num2, 2);
+                Console.WriteLine("");
+                Console.WriteLine("La suma es:" + suma);
+
+                Console.WriteLine("La resta es :" + resta);
+
+                Console.WriteLine("La multiplicacion es: " + multiplicacion);
+                Console.WriteLine("La division es: " + division);
+                Console.WriteLine(" ");
+            }
+            while (c <= 9);
+            Console.WriteLine("final del proceso");
+
+        }
+
+        //Ejercicio 22
+        static void calculadora_de_cubo()
+        {
+            double numero, c, cubo, raizcuadrada; ;
+            c = 0;
+            do
+            {
+                c = c + 1;
+                Console.WriteLine("PROCESO N° {0}:" + c);
+                Console.Write("ingrese un numero: ");
+                numero = double.Parse(Console.ReadLine());
+                if (numero != 0)
+                {
+                    cubo = Math.Pow(numero, 3);
+                    raizcuadrada = Math.Round(Math.Pow(numero, 0.5), 2);
+                    Console.WriteLine("El cubo es:" + cubo);
+                    Console.WriteLine("La raiz cuadrada es: " + raizcuadrada);
+                    Console.WriteLine("");
+                }
+
+            } while (numero != 0);
+            Console.WriteLine("");
+            Console.WriteLine("FINAL DEL PROCESO");
+        }
+
+        //Ejercicio 23
+        static void Calculadora()
+        {
+            double num1, num2, c, suma, resta, multiplicacion, division;
+            c = 0;
+            do
+            {
+                c = c + 1;
+                Console.WriteLine("PROCESO N° {0}:", c);
+                Console.Write("ingrese primer numero: ");
+                num1 = double.Parse(Console.ReadLine());
+                if (num1 != 0)
+                {
+                    Console.Write("ingrese segundo numero: ");
+                    num2 = double.Parse(Console.ReadLine());
+                    suma = num1 + num2;
+                    resta = num1 - num2;
+                    multiplicacion = num1 * num2;
+                    division = Math.Round(num1 / num2, 2);
+                    Console.WriteLine("");
+                    Console.WriteLine("La suma es:" + suma);
+                    Console.WriteLine("La resta es :" + resta);
+                    Console.WriteLine("La multiplicacion es: " + multiplicacion);
+                    Console.WriteLine("La division es:" + division);
+                    Console.WriteLine(" ");
+                }
+            }
+            while (num1 != 0);
+            Console.WriteLine(" ");
+            Console.WriteLine("FINAL DEL PROCESO");
+
+        }
+
+        //Ejercicio 24
+        static void area_triangulo()
+        {
+            double ladoa, ladob, ladoc, sm, areatriangulo;
+            Console.Write("ingrese lado A: ");
+            ladoa = double.Parse(Console.ReadLine());
+            Console.Write("ingrese lado B: ");
+            ladob = double.Parse(Console.ReadLine());
+            Console.Write("ingrese lado C: ");
+            ladoc = double.Parse(Console.ReadLine());
+            sm = (ladoa + ladob + ladoc) / 2;
+
+            areatriangulo = Math.Round(Math.Pow(sm * (sm - ladoa) * sm * (sm - ladob) * sm * (sm - ladoc), 0.5), 2);
+
+            Console.WriteLine("El area del triangulo es: " + areatriangulo);
+
+        }
+
+        // Ejercicio 25
+        static void sacar_hipotenusa()
+        {
+            double catetoa, catetob, hipotenusa;
+            Console.Write("Ingrese primer cateto: ");
+            catetoa =
+            double.Parse(Console.ReadLine());
+            Console.Write("Ingrese segundo cateto: ");
+            catetob = double.Parse(Console.ReadLine());
+            hipotenusa = Math.Round(Math.Pow(Math.Pow(catetoa, 2) +
+            Math.Pow(catetob, 2), 0.5), 2);
+            Console.WriteLine("");
+            Console.WriteLine("La hipotenusa es: {0}", hipotenusa);
+
+        }
+
+        //Ejercicio 26
+        static void circuferencia_circulo()
+        {
+            double pi, radio, area, volumen, longitud;
+            pi = 3.14;
+            Console.Write("Ingrese el radio de la circunferencia: ");
+            radio = int.Parse(Console.ReadLine());
+            longitud = 2 * pi * radio;
+            area = Math.Round(pi * Math.Pow(radio, 2), 2);
+            volumen = Math.Round((4 / 3) * pi * Math.Pow(radio, 3), 2);
+            Console.WriteLine("");
+            Console.WriteLine("Longitud de la circunferencia:" + longitud);
+            Console.WriteLine("Area de la circunferencia: " + area);
+            Console.WriteLine("Volumen de la circunferencia: " + volumen);
+
+        }
+        // Ejercicio 27
+        static void consumo_en_retaurante()
+        {
+            double consumo, descuento, total, c;
+            c = 1;
+            total = 0;
+            do
+            {
+
+                c = c + 1;
+                Console.Write("Ingrese {0}° consumo: ", c - 1);
+                consumo = double.Parse(Console.ReadLine());
+                if (consumo > 130)
+                {
+                    descuento = consumo * 0.15;
+
+                }
+                else
+                {
+                    descuento = 0;
+
+                }
+                consumo = consumo - descuento;
+                total = total + consumo;
+
+            }
+            while (c <= 130);
+            Console.WriteLine("");
+            Console.WriteLine("El total de los consumos es:" + total);
+            Console.WriteLine("FIN DEL PROCESO");
+
+        }
+
+        // Ejercicio 28
+        static void num_presentados_mayor_8()
+        {
+            int numero, suma, x;
+            suma = 0;
+
+            Console.Write("Ingrese el numero enesimo: ");
+            numero = int.Parse(Console.ReadLine());
+            if (numero < 8)
+            {
+                Console.WriteLine("");
+                Console.WriteLine("Error el numero ingresado es menor a 8");
+            }
+            else
+            {
+                for (x = 8; x <= numero; x = x + 1)
+                {
+                    suma = suma + x;
+                }
+                Console.WriteLine("");
+                Console.WriteLine("La suma de la serie de rango 8 hasta { 0}, con un incremento de 1 es: { 1}", numero, suma);
+            }
+
+        }
+        //Ejercicio 29
+        static void ingresos_compañia()
+        {
+            double caja, egreso, cont, totalegresos, restocaja;
+            totalegresos = 0;
+            caja = 371;
+            cont = 0;
+
+            do
+
+            {
+
+                cont = cont + 1;
+                Console.Write("Ingrese {0} egreso: ", cont);
+                egreso = double.Parse(Console.ReadLine());
+                totalegresos = totalegresos + egreso;
+                restocaja = caja - totalegresos;
+            }
+            while (egreso != -1);
+            Console.WriteLine("");
+            Console.WriteLine("El total de egresos es: {0}",
+            totalegresos + 1);
+            Console.WriteLine("Lo sobrante en caja es: {0}",
+            restocaja - 1);
+
+        }
+
+        //Ejercicio 30
+        static void formulario_de_notas()
+        {
+            double nota1, nota2, promedio;
+            Console.Write("ingrese primera nota: ");
+            nota1 = double.Parse(Console.ReadLine());
+            double.Parse(Console.ReadLine());
+            Console.Write("ingrese seunda nota: ");
+            nota2 = double.Parse(Console.ReadLine());
+            double.Parse(Console.ReadLine());
+            promedio = (nota1 + nota2) / 2;
+            if (nota1 >= 0 && nota1 <= 20 && nota2 >= 0 && nota2 <= 20)
+            {
+
+                if (promedio >= 10.5 && promedio <= 20)
+                {
+                    Console.WriteLine("");
+
+                    Console.WriteLine("Promedio:" + promedio);
+                    Console.WriteLine("aprobado");
+                }
+                else
+                {
+                    Console.WriteLine("");
+                    Console.WriteLine("Promedio: " + promedio);
+                    Console.WriteLine("desaprobado");
+
+                }
+            }
+            else
+            {
+                Console.WriteLine("");
+                Console.WriteLine("EROR... Las notas ingresadas no encuentran en la escala vigesimal(0 - 20)");
+            }
+
+        }
+    }
+}
